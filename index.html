@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador Didáctico de Máquina de Turing</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🧠 Simulador Didáctico de Máquina de Turing</h1>
+      <p>
+        Aprende paso a paso cómo una Máquina de Turing lee, escribe y mueve su cabezal.
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>1) Configuración</h2>
+        <div class="grid">
+          <label>
+            Ejemplo rápido
+            <select id="presetSelect">
+              <option value="">— Selecciona un ejemplo —</option>
+              <option value="unario">Sumar 1 (unario)</option>
+              <option value="paridad">Verificar paridad de 1s</option>
+            </select>
+          </label>
+
+          <label>
+            Cinta inicial
+            <input id="tapeInput" value="111" />
+          </label>
+
+          <label>
+            Símbolo en blanco
+            <input id="blankInput" value="_" maxlength="1" />
+          </label>
+
+          <label>
+            Estado inicial
+            <input id="startStateInput" value="q0" />
+          </label>
+
+          <label>
+            Estado de aceptación
+            <input id="acceptInput" value="qf" />
+          </label>
+
+          <label>
+            Estado de rechazo (opcional)
+            <input id="rejectInput" value="qr" />
+          </label>
+        </div>
+
+        <label class="full-width">
+          Transiciones (formato: estado,leer -> escribir,movimiento,estadoSiguiente)
+          <textarea id="transitionsInput" rows="8">q0,1 -> 1,R,q0
+q0,_ -> 1,S,qf</textarea>
+        </label>
+
+        <div class="button-row">
+          <button id="loadBtn">Cargar máquina</button>
+          <button id="resetBtn">Reiniciar</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2) Simulación</h2>
+        <div class="status-grid">
+          <p><strong>Estado actual:</strong> <span id="currentState">—</span></p>
+          <p><strong>Paso:</strong> <span id="stepCount">0</span></p>
+          <p><strong>Resultado:</strong> <span id="result">En ejecución</span></p>
+        </div>
+
+        <div id="tapeContainer" class="tape" aria-live="polite"></div>
+
+        <div class="button-row">
+          <button id="stepBtn">Paso a paso</button>
+          <button id="runBtn">Ejecutar (20 pasos)</button>
+        </div>
+
+        <details>
+          <summary>¿Qué está pasando en cada paso?</summary>
+          <ul>
+            <li>La máquina <strong>lee</strong> el símbolo bajo el cabezal.</li>
+            <li>Busca una regla de transición que coincida.</li>
+            <li><strong>Escribe</strong> un nuevo símbolo.</li>
+            <li>Mueve el cabezal a la izquierda (L), derecha (R) o se queda (S).</li>
+            <li>Cambia al siguiente estado.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section class="card">
+        <h2>3) Historial didáctico</h2>
+        <ol id="history"></ol>
+      </section>
+    </main>
+
+    <footer>
+      Diseñado para 4.º y 5.º de secundaria: experimenta, modifica reglas y observa el resultado.
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
