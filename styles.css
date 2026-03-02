@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --ink: #1f2a44;
+  --accent: #3d7bfd;
+  --ok: #188038;
+  --warn: #b06000;
+  --border: #d8dfeb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0.3rem;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+}
+
+textarea {
+  width: 100%;
+}
+
+.full-width {
+  margin-top: 0.75rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+}
+
+.tape {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cell {
+  min-width: 44px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem;
+  background: #f9fbff;
+}
+
+.cell.head {
+  border: 2px solid var(--accent);
+  background: #eaf1ff;
+  font-weight: 700;
+}
+
+.result-accept {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.result-reject {
+  color: #9f1a1a;
+  font-weight: 700;
+}
+
+.result-running {
+  color: var(--warn);
+  font-weight: 700;
+}
+
+#history {
+  margin: 0;
+  padding-left: 1.2rem;
+}
